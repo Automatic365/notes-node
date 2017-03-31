@@ -12,7 +12,12 @@ console.log(command)
 if(command === "list"){
   notes.getAll()
 } else if (command === "add"){
-  notes.addNote(argv.title, argv.body)
+  var note = notes.addNote(argv.title, argv.body)
+  if (note) {
+    console.log("Note saved")
+  } else {
+    console.log("Note not saved. Duplicate title")
+  }
 } else if(command === "read") {
   notes.readNote(argv.title)
 } else if(command === "remove"){
