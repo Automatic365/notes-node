@@ -21,7 +21,12 @@ if(command === "list"){
 } else if(command === "read") {
   notes.readNote(argv.title)
 } else if(command === "remove"){
-  notes.removeNote(argv.title)
+  note = notes.removeNote(argv.title)
+  if(!note){
+    console.log("Note not found")
+  } else {
+    console.log("Note removed successfully")
+  }
 } else {
   console.log("Command Not Recognized")
 }

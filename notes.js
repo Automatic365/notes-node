@@ -30,10 +30,16 @@ var addNote = function(title, body){
   }
 };
 
+var removeNote = function(title){
+  notes = fetchNotes()
+  filteredNotes = notes.filter((note) => note.title != title)
+  saveNotes(filteredNotes)
 
+  return notes.length !== filteredNotes.length
+}
 module.exports = {
-  addNote
+  addNote,
   // getAll,
-  // removeNote,
+  removeNote,
   // readNote
 }
