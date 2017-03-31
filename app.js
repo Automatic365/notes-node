@@ -15,11 +15,18 @@ if(command === "list"){
   var note = notes.addNote(argv.title, argv.body)
   if (note) {
     console.log("Note saved")
+    notes.logNote(note)
   } else {
     console.log("Note not saved. Duplicate title")
   }
 } else if(command === "read") {
-  notes.readNote(argv.title)
+  note = notes.readNote(argv.title)
+  if (note) {
+    console.log("Note Found")
+    notes.logNote(note)
+  } else {
+    console.log("Note not found")
+  }
 } else if(command === "remove"){
   note = notes.removeNote(argv.title)
   if(!note){
